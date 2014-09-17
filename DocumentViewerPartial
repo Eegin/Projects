@@ -1,0 +1,10 @@
+@Html.DevExpress().DocumentViewer(settings =>
+{
+    // The following settings are required for a Report Viewer.
+    settings.Name = "documentViewer1";
+    settings.Report = (EVALUATION.Reports.EvaluationReportDoc)ViewData["Report"];
+    // Callback and export route values specify corresponding controllers and their actions.
+    // These settings are required as well.
+    settings.CallbackRouteValues = new { Controller = "EvaluationReport", Action = "DocumentViewerPartial" };
+    settings.ExportRouteValues = new { Controller = "EvaluationReport", Action = "ExportDocumentViewer" };
+}).GetHtml()
